@@ -2,10 +2,11 @@
 <head>
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css">
   <script src="node_modules/angular/angular.min.js"></script>
 
 </head>
-<body ng-app="beerList" ng-controller="MainCtrl">
+<body ng-app="beerList" ng-controller="mainCtrl">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1 class="text-center">BeerList</h1>
@@ -35,6 +36,21 @@
 
         <button type="submit" class="btn btn-primary">Add</button>
       </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3" ng-repeat="beer in beerList track by $index">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">{{beer.name}}<span class="pull-right"><a href="#" ng-click="remove()"><i class="fa fa-times"></i></a></span></h2>
+        </div>
+        <div class="panel-body">
+          <img src="{{beer.image}}">
+          <p>{{beer.style}}</p>
+          <p>{{beer.abv}}</p>
+        </div>
+      </div>
     </div>
   </div>
   
